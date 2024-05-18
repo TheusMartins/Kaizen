@@ -7,14 +7,14 @@
 
 import Foundation
 
-public enum HTTPMethod: String {
+enum HTTPMethod: String {
     case get = "GET"
     case post = "POST"
     case put = "PUT"
     case delete = "DELETE"
 }
 
-public protocol RequestInfos {
+protocol RequestInfos {
     
     var baseURL: URL? { get }
     
@@ -26,7 +26,7 @@ public protocol RequestInfos {
 
 }
 
-public extension RequestInfos {
+ extension RequestInfos {
     var baseURL: URL? {
         return URL(string: "https://618d3aa7fe09aa001744060a.mockapi.io/api/sports")!
     }
