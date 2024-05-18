@@ -22,6 +22,7 @@
 		3C40E2442BF939B20026E162 /* BetListingRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C40E2432BF939B20026E162 /* BetListingRequest.swift */; };
 		3C40E2462BF93A2A0026E162 /* BetListingRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C40E2452BF93A2A0026E162 /* BetListingRepository.swift */; };
 		3C40E2482BF93A790026E162 /* BetListingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C40E2472BF93A790026E162 /* BetListingModel.swift */; };
+		3C40E24A2BF93D1C0026E162 /* BetListingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C40E2492BF93D1C0026E162 /* BetListingViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,7 @@
 		3C40E2432BF939B20026E162 /* BetListingRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetListingRequest.swift; sourceTree = "<group>"; };
 		3C40E2452BF93A2A0026E162 /* BetListingRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetListingRepository.swift; sourceTree = "<group>"; };
 		3C40E2472BF93A790026E162 /* BetListingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetListingModel.swift; sourceTree = "<group>"; };
+		3C40E2492BF93D1C0026E162 /* BetListingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetListingViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -189,6 +191,7 @@
 				3C40E2432BF939B20026E162 /* BetListingRequest.swift */,
 				3C40E2452BF93A2A0026E162 /* BetListingRepository.swift */,
 				3C40E2472BF93A790026E162 /* BetListingModel.swift */,
+				3C40E2492BF93D1C0026E162 /* BetListingViewModel.swift */,
 			);
 			path = BetListing;
 			sourceTree = "<group>";
@@ -328,6 +331,7 @@
 				3C40E2442BF939B20026E162 /* BetListingRequest.swift in Sources */,
 				3C40E2462BF93A2A0026E162 /* BetListingRepository.swift in Sources */,
 				3C40E2082BF9346A0026E162 /* ViewController.swift in Sources */,
+				3C40E24A2BF93D1C0026E162 /* BetListingViewModel.swift in Sources */,
 				3C40E23C2BF937B10026E162 /* Requester.swift in Sources */,
 				3C40E2042BF9346A0026E162 /* AppDelegate.swift in Sources */,
 				3C40E23A2BF937850026E162 /* RequestSuccessResponse.swift in Sources */,
