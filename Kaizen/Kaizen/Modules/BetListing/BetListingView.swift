@@ -44,13 +44,14 @@ final class BetListingView: UIView {
     }()
     
     private lazy var collectionView: UICollectionView = {
-        let tableView = UICollectionView()
-        tableView.backgroundColor = .darkGray
-        tableView.showsVerticalScrollIndicator = false
-        tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.dataSource = self
-        tableView.delegate = self
-        return tableView
+        let collectionView = UICollectionView()
+        collectionView.backgroundColor = .darkGray
+        collectionView.showsVerticalScrollIndicator = false
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.register(BetListingCell.self, forCellWithReuseIdentifier: BetListingCell.reuseIdentifier)
+        collectionView.dataSource = self
+        collectionView.delegate = self
+        return collectionView
     }()
     
     //MARK: - Initialization
@@ -110,7 +111,12 @@ extension BetListingView: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        return UICollectionViewCell()
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BetListingCell.reuseIdentifier, for: indexPath) as? BetListingCell else {
+            return UICollectionViewCell()
+        }
+        
+        cell.configureWithEvent(viewModel: viewModel.bets[indexPath.section].events[indexPath.row])
+        return cell
     }
 }
 
