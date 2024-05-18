@@ -14,6 +14,7 @@
 		3C40E21B2BF9346B0026E162 /* KaizenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C40E21A2BF9346B0026E162 /* KaizenTests.swift */; };
 		3C40E2252BF9346B0026E162 /* KaizenUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C40E2242BF9346B0026E162 /* KaizenUITests.swift */; };
 		3C40E2272BF9346B0026E162 /* KaizenUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C40E2262BF9346B0026E162 /* KaizenUITestsLaunchTests.swift */; };
+		3C40E2362BF936D50026E162 /* RequestInfos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C40E2352BF936D50026E162 /* RequestInfos.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +46,7 @@
 		3C40E2202BF9346B0026E162 /* KaizenUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KaizenUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C40E2242BF9346B0026E162 /* KaizenUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KaizenUITests.swift; sourceTree = "<group>"; };
 		3C40E2262BF9346B0026E162 /* KaizenUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KaizenUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		3C40E2352BF936D50026E162 /* RequestInfos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestInfos.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +97,7 @@
 		3C40E2022BF9346A0026E162 /* Kaizen */ = {
 			isa = PBXGroup;
 			children = (
+				3C40E2332BF936A80026E162 /* Modules */,
 				3C40E2032BF9346A0026E162 /* AppDelegate.swift */,
 				3C40E2072BF9346A0026E162 /* ViewController.swift */,
 				3C40E20C2BF9346B0026E162 /* Assets.xcassets */,
@@ -119,6 +122,22 @@
 				3C40E2262BF9346B0026E162 /* KaizenUITestsLaunchTests.swift */,
 			);
 			path = KaizenUITests;
+			sourceTree = "<group>";
+		};
+		3C40E2332BF936A80026E162 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				3C40E2342BF936B00026E162 /* Network */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		3C40E2342BF936B00026E162 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				3C40E2352BF936D50026E162 /* RequestInfos.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -251,6 +270,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3C40E2362BF936D50026E162 /* RequestInfos.swift in Sources */,
 				3C40E2082BF9346A0026E162 /* ViewController.swift in Sources */,
 				3C40E2042BF9346A0026E162 /* AppDelegate.swift in Sources */,
 			);
