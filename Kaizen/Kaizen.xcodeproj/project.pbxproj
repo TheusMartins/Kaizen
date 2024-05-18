@@ -23,6 +23,10 @@
 		3C40E2462BF93A2A0026E162 /* BetListingRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C40E2452BF93A2A0026E162 /* BetListingRepository.swift */; };
 		3C40E2482BF93A790026E162 /* BetListingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C40E2472BF93A790026E162 /* BetListingModel.swift */; };
 		3C40E24A2BF93D1C0026E162 /* BetListingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C40E2492BF93D1C0026E162 /* BetListingViewModel.swift */; };
+		3C40E24C2BF93DFA0026E162 /* BetListingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C40E24B2BF93DFA0026E162 /* BetListingView.swift */; };
+		3C40E24F2BF93FC80026E162 /* SpinnerLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C40E24E2BF93FC80026E162 /* SpinnerLoader.swift */; };
+		3C40E2512BF940FB0026E162 /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C40E2502BF940FB0026E162 /* Reusable.swift */; };
+		3C40E2532BF941410026E162 /* ViewConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C40E2522BF941410026E162 /* ViewConfiguration.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +67,10 @@
 		3C40E2452BF93A2A0026E162 /* BetListingRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetListingRepository.swift; sourceTree = "<group>"; };
 		3C40E2472BF93A790026E162 /* BetListingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetListingModel.swift; sourceTree = "<group>"; };
 		3C40E2492BF93D1C0026E162 /* BetListingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetListingViewModel.swift; sourceTree = "<group>"; };
+		3C40E24B2BF93DFA0026E162 /* BetListingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetListingView.swift; sourceTree = "<group>"; };
+		3C40E24E2BF93FC80026E162 /* SpinnerLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerLoader.swift; sourceTree = "<group>"; };
+		3C40E2502BF940FB0026E162 /* Reusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
+		3C40E2522BF941410026E162 /* ViewConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewConfiguration.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +150,7 @@
 		3C40E2332BF936A80026E162 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				3C40E24D2BF93FB60026E162 /* UIHelper */,
 				3C40E2422BF939340026E162 /* BetListing */,
 				3C40E2342BF936B00026E162 /* Network */,
 			);
@@ -192,8 +201,19 @@
 				3C40E2452BF93A2A0026E162 /* BetListingRepository.swift */,
 				3C40E2472BF93A790026E162 /* BetListingModel.swift */,
 				3C40E2492BF93D1C0026E162 /* BetListingViewModel.swift */,
+				3C40E24B2BF93DFA0026E162 /* BetListingView.swift */,
 			);
 			path = BetListing;
+			sourceTree = "<group>";
+		};
+		3C40E24D2BF93FB60026E162 /* UIHelper */ = {
+			isa = PBXGroup;
+			children = (
+				3C40E24E2BF93FC80026E162 /* SpinnerLoader.swift */,
+				3C40E2502BF940FB0026E162 /* Reusable.swift */,
+				3C40E2522BF941410026E162 /* ViewConfiguration.swift */,
+			);
+			path = UIHelper;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -327,9 +347,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				3C40E2482BF93A790026E162 /* BetListingModel.swift in Sources */,
+				3C40E24C2BF93DFA0026E162 /* BetListingView.swift in Sources */,
 				3C40E2362BF936D50026E162 /* RequestInfos.swift in Sources */,
 				3C40E2442BF939B20026E162 /* BetListingRequest.swift in Sources */,
+				3C40E24F2BF93FC80026E162 /* SpinnerLoader.swift in Sources */,
+				3C40E2532BF941410026E162 /* ViewConfiguration.swift in Sources */,
 				3C40E2462BF93A2A0026E162 /* BetListingRepository.swift in Sources */,
+				3C40E2512BF940FB0026E162 /* Reusable.swift in Sources */,
 				3C40E2082BF9346A0026E162 /* ViewController.swift in Sources */,
 				3C40E24A2BF93D1C0026E162 /* BetListingViewModel.swift in Sources */,
 				3C40E23C2BF937B10026E162 /* Requester.swift in Sources */,
