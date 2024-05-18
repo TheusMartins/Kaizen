@@ -31,7 +31,7 @@ final class BetListingView: UIView {
     
     var viewModel: BetListingView.ViewModel {
         didSet {
-            collectionView.reloadData()
+            tableView.reloadData()
         }
     }
     
@@ -43,15 +43,15 @@ final class BetListingView: UIView {
         return loader
     }()
     
-    private lazy var collectionView: UICollectionView = {
-        let collectionView = UICollectionView()
-        collectionView.backgroundColor = .darkGray
-        collectionView.showsVerticalScrollIndicator = false
-        collectionView.translatesAutoresizingMaskIntoConstraints = false
-        collectionView.register(BetListingCell.self, forCellWithReuseIdentifier: BetListingCell.reuseIdentifier)
-        collectionView.dataSource = self
-        collectionView.delegate = self
-        return collectionView
+    private lazy var tableView: UITableView = {
+        let tableView = UITableView(frame: .zero, style: .plain)
+        tableView.backgroundColor = .darkGray
+        tableView.showsVerticalScrollIndicator = false
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.register(BetListingCell.self, forCellReuseIdentifier: BetListingCell.reuseIdentifier)
+        tableView.dataSource = self
+        tableView.delegate = self
+        return tableView
     }()
     
     //MARK: - Initialization
@@ -70,7 +70,7 @@ final class BetListingView: UIView {
     // MARK: - Public methods
     func setLoading(isLoading: Bool) {
         spinnerLoader.isHidden = !isLoading
-        collectionView.isHidden = isLoading
+        tableView.isHidden = isLoading
         isLoading ? spinnerLoader.startAnimation() : spinnerLoader.stopAnimating()
     }
 }
@@ -78,16 +78,16 @@ final class BetListingView: UIView {
 // MARK: - ViewConfiguration
 extension BetListingView: ViewConfiguration {
     func buildViewHierarchy() {
-        addSubview(collectionView)
+        addSubview(tableView)
         addSubview(spinnerLoader)
     }
     
     func setupConstraints() {
         NSLayoutConstraint.activate([
-            collectionView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 24),
-            collectionView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            collectionView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            collectionView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -24),
+            tableView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 24),
+            tableView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            tableView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            tableView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -24),
             
             spinnerLoader.heightAnchor.constraint(equalToConstant: 56),
             spinnerLoader.widthAnchor.constraint(equalToConstant: 56),
@@ -101,25 +101,73 @@ extension BetListingView: ViewConfiguration {
     }
 }
 
-extension BetListingView: UICollectionViewDataSource {
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
+extension BetListingView: UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return viewModel.bets.count
     }
     
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.bets[section].events.count
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BetListingCell.reuseIdentifier, for: indexPath) as? BetListingCell else {
-            return UICollectionViewCell()
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: BetListingCell.reuseIdentifier, for: indexPath) as? BetListingCell else {
+            return UITableViewCell()
         }
         
-        cell.configureWithEvent(viewModel: viewModel.bets[indexPath.section].events[indexPath.row])
+        cell.setupWith(viewModel: viewModel.bets[indexPath.section].events[indexPath.row])
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let header = CustomHeaderView()
+        header.titleLabel.text = viewModel.bets[section].sportName
+        return header
     }
 }
 
-extension BetListingView: UICollectionViewDelegate {
+extension BetListingView: UITableViewDelegate {
     
+}
+
+class CustomHeaderView: UITableViewHeaderFooterView {
+    static let identifier = "CustomHeaderView"
+    
+    let titleLabel = UILabel()
+    let chevronImageView = UIImageView()
+    
+    override init(reuseIdentifier: String?) {
+        super.init(reuseIdentifier: reuseIdentifier)
+        configureViews()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    private func configureViews() {
+        titleLabel.translatesAutoresizingMaskIntoConstraints = false
+        chevronImageView.translatesAutoresizingMaskIntoConstraints = false
+        
+        addSubview(titleLabel)
+        addSubview(chevronImageView)
+        
+        // Chevron image setup
+        chevronImageView.image = UIImage(systemName: "chevron.down") // Default state
+        chevronImageView.contentMode = .scaleAspectFit
+        
+        NSLayoutConstraint.activate([
+            titleLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
+            titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+            
+            chevronImageView.centerYAnchor.constraint(equalTo: centerYAnchor),
+            chevronImageView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
+            chevronImageView.widthAnchor.constraint(equalToConstant: 20),
+            chevronImageView.heightAnchor.constraint(equalToConstant: 20),
+        ])
+    }
+    
+    func setCollapsed(_ collapsed: Bool) {
+        chevronImageView.image = collapsed ? UIImage(systemName: "chevron.right") : UIImage(systemName: "chevron.down")
+    }
 }

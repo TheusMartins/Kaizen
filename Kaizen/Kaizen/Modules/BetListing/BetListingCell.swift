@@ -7,14 +7,25 @@
 
 import UIKit
 
-final class BetListingCell: UICollectionViewCell {
+final class BetListingCell: UITableViewCell {
     struct ViewModel {
         let eventName: String
         let timeToStartStart: Int
     }
     
+    private lazy var counterContainer: UIView = {
+        let view = UIView()
+        view.layer.cornerRadius = 4
+        view.layer.borderColor = UIColor.white.cgColor
+        view.layer.borderWidth = 1
+        view.backgroundColor = .clear
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
     private lazy var counterLabel: UILabel = {
         let label = UILabel()
+        label.text = "HH:MM:SS"
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -22,45 +33,37 @@ final class BetListingCell: UICollectionViewCell {
     
     private lazy var starImageView: UIImageView = {
         let imageView = UIImageView(image: .init(systemName: "star"))
-        starImageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFit
-        imageView.isUserInteractionEnabled = true
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(toggleFavorite))
-        imageView.addGestureRecognizer(tapGesture)
         return imageView
     }()
     
     private lazy var eventNameLabel: UILabel = {
         let label = UILabel()
-        label.textAlignment = .center
+        label.numberOfLines = .zero
+        label.textAlignment = .left
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
     // Timer for the counter
-    private var timer: Timer?
-    private var endTime: TimeInterval?
+    var timer: Timer?
+    var endTime: TimeInterval?
     
     override func prepareForReuse() {
         super.prepareForReuse()
         timer?.invalidate()
         timer = nil
-        starImageView.image = UIImage(systemName: "star") // Reset to default state
+        counterLabel.removeFromSuperview()
+        starImageView.removeFromSuperview()
+        eventNameLabel.removeFromSuperview()
     }
     
-    func configureWithEvent(viewModel: BetListingCell.ViewModel) {
+    func setupWith(viewModel: BetListingCell.ViewModel) {
         eventNameLabel.text = viewModel.eventName
-        self.endTime = TimeInterval(viewModel.timeToStartStart)
+        endTime = TimeInterval(viewModel.timeToStartStart)
         startTimer()
-    }
-    
-    @objc private func toggleFavorite() {
-        // Toggle the favorite state and update the star image
-        if starImageView.image == UIImage(systemName: "star.fill") {
-            starImageView.image = UIImage(systemName: "star")
-        } else {
-            starImageView.image = UIImage(systemName: "star.fill")
-        }
+        setupViewConfiguration()
     }
     
     private func startTimer() {
@@ -77,32 +80,38 @@ final class BetListingCell: UICollectionViewCell {
             let hours = Int(remainingTime) / 3600
             let minutes = Int(remainingTime) / 60 % 60
             let seconds = Int(remainingTime) % 60
-            counterLabel.text = String(format: "%02i:%02i:%02i", hours, minutes, seconds)
+            self.counterLabel.text = String(format: "%02i:%02i:%02i", hours, minutes, seconds)
         }
     }
 }
 
 extension BetListingCell: ViewConfiguration {
     func buildViewHierarchy() {
-        addSubview(counterLabel)
+        addSubview(counterContainer)
+        counterContainer.addSubview(counterLabel)
         addSubview(starImageView)
         addSubview(eventNameLabel)
     }
     
     func setupConstraints() {
         NSLayoutConstraint.activate([
-            counterLabel.topAnchor.constraint(equalTo: topAnchor, constant: 8),
-            counterLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 4),
-            counterLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -4),
+            counterContainer.topAnchor.constraint(equalTo: topAnchor, constant: 8),
+            counterContainer.leadingAnchor.constraint(equalTo: eventNameLabel.leadingAnchor),
             
-            starImageView.topAnchor.constraint(equalTo: counterLabel.bottomAnchor, constant: 8),
+            counterLabel.topAnchor.constraint(equalTo: counterContainer.topAnchor, constant: 4),
+            counterLabel.leadingAnchor.constraint(equalTo: counterContainer.leadingAnchor, constant: 4),
+            counterLabel.trailingAnchor.constraint(equalTo: counterContainer.trailingAnchor, constant: -4),
+            counterLabel.bottomAnchor.constraint(equalTo: counterContainer.bottomAnchor, constant: -4),
+            
+            eventNameLabel.topAnchor.constraint(equalTo: counterLabel.bottomAnchor, constant: 8),
+            eventNameLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 24),
+            eventNameLabel.trailingAnchor.constraint(equalTo: starImageView.leadingAnchor, constant: -24),
+            eventNameLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -8),
+            
             starImageView.widthAnchor.constraint(equalToConstant: 24),
             starImageView.heightAnchor.constraint(equalToConstant: 24),
-            
-            eventNameLabel.topAnchor.constraint(equalTo: starImageView.bottomAnchor, constant: 8),
-            eventNameLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 4),
-            eventNameLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -4),
-            eventNameLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -8)
+            starImageView.centerYAnchor.constraint(equalTo: centerYAnchor),
+            starImageView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8)
         ])
     }
 }
