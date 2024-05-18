@@ -20,6 +20,8 @@
 		3C40E23C2BF937B10026E162 /* Requester.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C40E23B2BF937B10026E162 /* Requester.swift */; };
 		3C40E2412BF938510026E162 /* URLProtocolStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C40E2402BF938510026E162 /* URLProtocolStub.swift */; };
 		3C40E2442BF939B20026E162 /* BetListingRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C40E2432BF939B20026E162 /* BetListingRequest.swift */; };
+		3C40E2462BF93A2A0026E162 /* BetListingRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C40E2452BF93A2A0026E162 /* BetListingRepository.swift */; };
+		3C40E2482BF93A790026E162 /* BetListingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C40E2472BF93A790026E162 /* BetListingModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +59,8 @@
 		3C40E23B2BF937B10026E162 /* Requester.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Requester.swift; sourceTree = "<group>"; };
 		3C40E2402BF938510026E162 /* URLProtocolStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLProtocolStub.swift; sourceTree = "<group>"; };
 		3C40E2432BF939B20026E162 /* BetListingRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetListingRequest.swift; sourceTree = "<group>"; };
+		3C40E2452BF93A2A0026E162 /* BetListingRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetListingRepository.swift; sourceTree = "<group>"; };
+		3C40E2472BF93A790026E162 /* BetListingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetListingModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -183,6 +187,8 @@
 			children = (
 				3C40E2072BF9346A0026E162 /* ViewController.swift */,
 				3C40E2432BF939B20026E162 /* BetListingRequest.swift */,
+				3C40E2452BF93A2A0026E162 /* BetListingRepository.swift */,
+				3C40E2472BF93A790026E162 /* BetListingModel.swift */,
 			);
 			path = BetListing;
 			sourceTree = "<group>";
@@ -317,8 +323,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3C40E2482BF93A790026E162 /* BetListingModel.swift in Sources */,
 				3C40E2362BF936D50026E162 /* RequestInfos.swift in Sources */,
 				3C40E2442BF939B20026E162 /* BetListingRequest.swift in Sources */,
+				3C40E2462BF93A2A0026E162 /* BetListingRepository.swift in Sources */,
 				3C40E2082BF9346A0026E162 /* ViewController.swift in Sources */,
 				3C40E23C2BF937B10026E162 /* Requester.swift in Sources */,
 				3C40E2042BF9346A0026E162 /* AppDelegate.swift in Sources */,
