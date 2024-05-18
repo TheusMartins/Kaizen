@@ -17,12 +17,7 @@ final class BetListingView: UIView {
         
         struct Bet {
             let sportName: String
-            let events: [EventInfos]
-        }
-        
-        struct EventInfos {
-            let eventName: String
-            let timeToStartStart: Int
+            let events: [BetListingCell.ViewModel]
         }
     }
     
