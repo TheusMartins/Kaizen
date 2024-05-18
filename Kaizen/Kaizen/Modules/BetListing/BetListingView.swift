@@ -120,54 +120,11 @@ extension BetListingView: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let header = CustomHeaderView()
-        header.titleLabel.text = viewModel.bets[section].sportName
+        let header = HeaderView(headerTitle: viewModel.bets[section].sportName)
         return header
     }
 }
 
 extension BetListingView: UITableViewDelegate {
     
-}
-
-class CustomHeaderView: UITableViewHeaderFooterView {
-    static let identifier = "CustomHeaderView"
-    
-    let titleLabel = UILabel()
-    let chevronImageView = UIImageView()
-    
-    override init(reuseIdentifier: String?) {
-        super.init(reuseIdentifier: reuseIdentifier)
-        configureViews()
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    private func configureViews() {
-        titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        chevronImageView.translatesAutoresizingMaskIntoConstraints = false
-        
-        addSubview(titleLabel)
-        addSubview(chevronImageView)
-        
-        // Chevron image setup
-        chevronImageView.image = UIImage(systemName: "chevron.down") // Default state
-        chevronImageView.contentMode = .scaleAspectFit
-        
-        NSLayoutConstraint.activate([
-            titleLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
-            titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
-            
-            chevronImageView.centerYAnchor.constraint(equalTo: centerYAnchor),
-            chevronImageView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
-            chevronImageView.widthAnchor.constraint(equalToConstant: 20),
-            chevronImageView.heightAnchor.constraint(equalToConstant: 20),
-        ])
-    }
-    
-    func setCollapsed(_ collapsed: Bool) {
-        chevronImageView.image = collapsed ? UIImage(systemName: "chevron.right") : UIImage(systemName: "chevron.down")
-    }
 }
