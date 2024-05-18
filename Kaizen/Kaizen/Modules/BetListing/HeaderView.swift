@@ -22,10 +22,15 @@ final class HeaderView: UIView {
         return imageView
     }()
     
+    // Add a closure to handle tap action
+    var didTapHeader: (() -> Void)?
+    
     init(headerTitle: String) {
         super.init(frame: .zero)
         setupViewConfiguration()
         titleLabel.text = headerTitle
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap))
+        self.addGestureRecognizer(tapGesture)
     }
     
     required init?(coder: NSCoder) {
@@ -34,6 +39,10 @@ final class HeaderView: UIView {
     
     func setCollapsed(_ collapsed: Bool) {
         chevronImageView.image = collapsed ? UIImage(systemName: "chevron.right") : UIImage(systemName: "chevron.down")
+    }
+    
+    @objc private func handleTap() {
+        didTapHeader?()
     }
 }
 

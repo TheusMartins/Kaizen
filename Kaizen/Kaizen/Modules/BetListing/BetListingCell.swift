@@ -11,6 +11,7 @@ final class BetListingCell: UITableViewCell {
     struct ViewModel {
         let eventName: String
         let timeToStartStart: Int
+        var isFavorite: Bool = false
     }
     
     private lazy var counterContainer: UIView = {
@@ -54,7 +55,7 @@ final class BetListingCell: UITableViewCell {
         super.prepareForReuse()
         timer?.invalidate()
         timer = nil
-        counterLabel.removeFromSuperview()
+        counterContainer.removeFromSuperview()
         starImageView.removeFromSuperview()
         eventNameLabel.removeFromSuperview()
     }

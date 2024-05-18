@@ -13,11 +13,12 @@ protocol BetListingViewDelegate: AnyObject {
 
 final class BetListingView: UIView {
     struct ViewModel {
-        let bets: [Bet]
+        var bets: [Bet]
         
         struct Bet {
             let sportName: String
             let events: [BetListingCell.ViewModel]
+            var isCollapsed: Bool = false
         }
     }
     
@@ -73,6 +74,16 @@ final class BetListingView: UIView {
         tableView.isHidden = isLoading
         isLoading ? spinnerLoader.startAnimation() : spinnerLoader.stopAnimating()
     }
+    
+    private func toggleSection(_ section: Int) {
+        // Toggle collapsed state
+        viewModel.bets[section].isCollapsed.toggle()
+        
+        // Reload section with animation
+        UIView.performWithoutAnimation {
+            tableView.reloadSections(IndexSet(integer: section), with: .none)
+        }
+    }
 }
 
 // MARK: - ViewConfiguration
@@ -107,7 +118,7 @@ extension BetListingView: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.bets[section].events.count
+        return viewModel.bets[section].isCollapsed ? 0 : viewModel.bets[section].events.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -118,13 +129,16 @@ extension BetListingView: UITableViewDataSource {
         cell.setupWith(viewModel: viewModel.bets[indexPath.section].events[indexPath.row])
         return cell
     }
-    
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let header = HeaderView(headerTitle: viewModel.bets[section].sportName)
-        return header
-    }
 }
 
 extension BetListingView: UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let header = HeaderView(headerTitle: viewModel.bets[section].sportName)
+        header.didTapHeader = { [weak self] in
+            guard let self else { return }
+            toggleSection(section)
+        }
+        header.setCollapsed(viewModel.bets[section].isCollapsed)
+        return header
+    }
 }
