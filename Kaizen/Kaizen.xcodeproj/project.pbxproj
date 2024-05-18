@@ -16,6 +16,7 @@
 		3C40E2272BF9346B0026E162 /* KaizenUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C40E2262BF9346B0026E162 /* KaizenUITestsLaunchTests.swift */; };
 		3C40E2362BF936D50026E162 /* RequestInfos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C40E2352BF936D50026E162 /* RequestInfos.swift */; };
 		3C40E2382BF9373A0026E162 /* BaseRequestErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C40E2372BF9373A0026E162 /* BaseRequestErrors.swift */; };
+		3C40E23A2BF937850026E162 /* RequestSuccessResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C40E2392BF937850026E162 /* RequestSuccessResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		3C40E2262BF9346B0026E162 /* KaizenUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KaizenUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		3C40E2352BF936D50026E162 /* RequestInfos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestInfos.swift; sourceTree = "<group>"; };
 		3C40E2372BF9373A0026E162 /* BaseRequestErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseRequestErrors.swift; sourceTree = "<group>"; };
+		3C40E2392BF937850026E162 /* RequestSuccessResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestSuccessResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +141,7 @@
 			children = (
 				3C40E2352BF936D50026E162 /* RequestInfos.swift */,
 				3C40E2372BF9373A0026E162 /* BaseRequestErrors.swift */,
+				3C40E2392BF937850026E162 /* RequestSuccessResponse.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -276,6 +279,7 @@
 				3C40E2362BF936D50026E162 /* RequestInfos.swift in Sources */,
 				3C40E2082BF9346A0026E162 /* ViewController.swift in Sources */,
 				3C40E2042BF9346A0026E162 /* AppDelegate.swift in Sources */,
+				3C40E23A2BF937850026E162 /* RequestSuccessResponse.swift in Sources */,
 				3C40E2382BF9373A0026E162 /* BaseRequestErrors.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
