@@ -17,8 +17,14 @@ final class BetListingView: UIView {
         
         struct Bet {
             let sportName: String
-            let events: [BetListingCell.ViewModel]
+            var events: [BetListingCell.ViewModel]
             var isCollapsed: Bool = false
+        }
+        
+        mutating func sortEventsPuttingFavoritesFirst() {
+            for index in bets.indices {
+                bets[index].events.sort { $0.isFavorite && !$1.isFavorite }
+            }
         }
     }
     
@@ -84,6 +90,17 @@ final class BetListingView: UIView {
             tableView.reloadSections(IndexSet(integer: section), with: .none)
         }
     }
+    
+    func toggleFavorite(forEventAt indexPath: IndexPath) {
+        // Toggle the favorite state
+        viewModel.bets[indexPath.section].events[indexPath.row].isFavorite.toggle()
+        
+        // Sort events to move favorites to the top
+        viewModel.sortEventsPuttingFavoritesFirst()
+        
+        // Reload the table view to reflect changes
+        tableView.reloadData()
+    }
 }
 
 // MARK: - ViewConfiguration
@@ -140,5 +157,9 @@ extension BetListingView: UITableViewDelegate {
         }
         header.setCollapsed(viewModel.bets[section].isCollapsed)
         return header
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        toggleFavorite(forEventAt: indexPath)
     }
 }
