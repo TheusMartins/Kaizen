@@ -32,6 +32,9 @@
 		3C8D4C8D2BF9999600F9156E /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C8D4C8C2BF9999600F9156E /* UIViewControllerExtension.swift */; };
 		3C8D4C912BF99BC600F9156E /* RequesterSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C8D4C902BF99BC600F9156E /* RequesterSpy.swift */; };
 		3C8D4C932BF99C9000F9156E /* BetListingRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C8D4C922BF99C9000F9156E /* BetListingRepositoryTests.swift */; };
+		3C8D4C952BF99E9B00F9156E /* BetListingViewModelDelegateSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C8D4C942BF99E9B00F9156E /* BetListingViewModelDelegateSpy.swift */; };
+		3C8D4C972BF99EE900F9156E /* BetListingRepositorySpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C8D4C962BF99EE900F9156E /* BetListingRepositorySpy.swift */; };
+		3C8D4C992BF99F4600F9156E /* BetListingViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C8D4C982BF99F4600F9156E /* BetListingViewModelTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +84,9 @@
 		3C8D4C8C2BF9999600F9156E /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		3C8D4C902BF99BC600F9156E /* RequesterSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequesterSpy.swift; sourceTree = "<group>"; };
 		3C8D4C922BF99C9000F9156E /* BetListingRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetListingRepositoryTests.swift; sourceTree = "<group>"; };
+		3C8D4C942BF99E9B00F9156E /* BetListingViewModelDelegateSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetListingViewModelDelegateSpy.swift; sourceTree = "<group>"; };
+		3C8D4C962BF99EE900F9156E /* BetListingRepositorySpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetListingRepositorySpy.swift; sourceTree = "<group>"; };
+		3C8D4C982BF99F4600F9156E /* BetListingViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetListingViewModelTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -243,6 +249,7 @@
 			children = (
 				3C8D4C8F2BF99BB400F9156E /* Helpers */,
 				3C8D4C922BF99C9000F9156E /* BetListingRepositoryTests.swift */,
+				3C8D4C982BF99F4600F9156E /* BetListingViewModelTests.swift */,
 			);
 			path = BetListing;
 			sourceTree = "<group>";
@@ -251,6 +258,8 @@
 			isa = PBXGroup;
 			children = (
 				3C8D4C902BF99BC600F9156E /* RequesterSpy.swift */,
+				3C8D4C942BF99E9B00F9156E /* BetListingViewModelDelegateSpy.swift */,
+				3C8D4C962BF99EE900F9156E /* BetListingRepositorySpy.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -412,7 +421,10 @@
 				3C40E21B2BF9346B0026E162 /* RequesterTests.swift in Sources */,
 				3C8D4C912BF99BC600F9156E /* RequesterSpy.swift in Sources */,
 				3C8D4C932BF99C9000F9156E /* BetListingRepositoryTests.swift in Sources */,
+				3C8D4C972BF99EE900F9156E /* BetListingRepositorySpy.swift in Sources */,
 				3C40E2412BF938510026E162 /* URLProtocolStub.swift in Sources */,
+				3C8D4C992BF99F4600F9156E /* BetListingViewModelTests.swift in Sources */,
+				3C8D4C952BF99E9B00F9156E /* BetListingViewModelDelegateSpy.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
