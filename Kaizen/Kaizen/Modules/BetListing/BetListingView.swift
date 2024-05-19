@@ -11,7 +11,11 @@ protocol BetListingViewDelegate: AnyObject {
     func didTriggerAction(action: BetListingView.Actions)
 }
 
+/**
+ `BetListingView` is responsible for displaying a list of bets. It supports toggling the visibility of bet sections and marking bets as favorite.
+ */
 final class BetListingView: UIView {
+    // MARK: - ViewModel
     struct ViewModel {
         var bets: [Bet]
         
@@ -21,6 +25,7 @@ final class BetListingView: UIView {
             var isCollapsed: Bool = false
         }
         
+        /// Sorts the events within each bet, putting favorites first.
         mutating func sortEventsPuttingFavoritesFirst() {
             for index in bets.indices {
                 bets[index].events.sort { $0.isFavorite && !$1.isFavorite }
@@ -29,11 +34,10 @@ final class BetListingView: UIView {
     }
     
     enum Actions {
-        
+        // Define actions here
     }
     
-    // MARK: - Open properties
-    
+    // MARK: - Properties
     weak var delegate: BetListingViewDelegate?
     
     var viewModel: BetListingView.ViewModel {
@@ -41,8 +45,6 @@ final class BetListingView: UIView {
             tableView.reloadData()
         }
     }
-    
-    // MARK: - Private properties
     
     private var timer: Timer?
     
@@ -63,10 +65,8 @@ final class BetListingView: UIView {
         return tableView
     }()
     
-    //MARK: - Initialization
-    init(
-        viewModel: BetListingView.ViewModel
-    ) {
+    // MARK: - Initialization
+    init(viewModel: BetListingView.ViewModel) {
         self.viewModel = viewModel
         super.init(frame: .zero)
         setupViewConfiguration()
@@ -76,39 +76,34 @@ final class BetListingView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    // MARK: - Public methods
-    
+    // MARK: - Public Methods
+    /// Sets the loading state of the view, showing or hiding the spinner loader accordingly.
     func setLoading(isLoading: Bool) {
         spinnerLoader.isHidden = !isLoading
         tableView.isHidden = isLoading
         isLoading ? spinnerLoader.startAnimation() : spinnerLoader.stopAnimating()
     }
     
+    /// Toggles the collapsed state of a section.
     private func toggleSection(_ section: Int) {
-        // Toggle collapsed state
         viewModel.bets[section].isCollapsed.toggle()
-        
-        // Reload section with animation
         UIView.performWithoutAnimation {
             tableView.reloadSections(IndexSet(integer: section), with: .none)
         }
     }
     
+    /// Toggles the favorite state of an event and sorts the events list.
     func toggleFavorite(forEventAt indexPath: IndexPath) {
-        // Toggle the favorite state
         viewModel.bets[indexPath.section].events[indexPath.row].isFavorite.toggle()
-        
-        // Sort events to move favorites to the top
         viewModel.sortEventsPuttingFavoritesFirst()
-        
-        // Reload the table view to reflect changes
-        tableView.reloadData()
+        tableView.reloadRows(at: [indexPath], with: .none)
     }
     
+    /// Updates the countdown for all visible cells.
     @objc func updateCountdown() {
         for cell in tableView.visibleCells as! [BetListingCell] {
             if let indexPath = tableView.indexPath(for: cell) {
-                let viewModel = viewModel.bets[indexPath.section].events[indexPath.row] 
+                let viewModel = viewModel.bets[indexPath.section].events[indexPath.row]
                 cell.updateWith(viewModel: viewModel)
             }
         }
@@ -124,13 +119,13 @@ extension BetListingView: ViewConfiguration {
     
     func setupConstraints() {
         NSLayoutConstraint.activate([
-            tableView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 24),
+            tableView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: .tableViewTopBottomPadding),
             tableView.leadingAnchor.constraint(equalTo: leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            tableView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -24),
+            tableView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -.tableViewTopBottomPadding),
             
-            spinnerLoader.heightAnchor.constraint(equalToConstant: 56),
-            spinnerLoader.widthAnchor.constraint(equalToConstant: 56),
+            spinnerLoader.heightAnchor.constraint(equalToConstant: .spinnerLoaderSize),
+            spinnerLoader.widthAnchor.constraint(equalToConstant: .spinnerLoaderSize),
             spinnerLoader.centerYAnchor.constraint(equalTo: centerYAnchor),
             spinnerLoader.centerXAnchor.constraint(equalTo: centerXAnchor)
         ])
@@ -175,4 +170,10 @@ extension BetListingView: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         toggleFavorite(forEventAt: indexPath)
     }
+}
+
+// MARK: - Constants
+private extension CGFloat {
+    static let tableViewTopBottomPadding: CGFloat = 24.0
+    static let spinnerLoaderSize: CGFloat = 56.0
 }
