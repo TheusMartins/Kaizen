@@ -17,7 +17,7 @@ protocol BetListingViewModelDelegate: AnyObject {
 
 /// `BetListingViewModel` is responsible for fetching and managing the data for a list of bets,
 /// and notifying its delegate of any state changes.
-public final class BetListingViewModel {
+final class BetListingViewModel {
     // MARK: - Private Properties
     
     /// The repository responsible for fetching the bets data.

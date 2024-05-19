@@ -30,6 +30,8 @@
 		3C40E2552BF944D00026E162 /* BetListingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C40E2542BF944D00026E162 /* BetListingCell.swift */; };
 		3C8D4C8A2BF95D1800F9156E /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C8D4C892BF95D1800F9156E /* HeaderView.swift */; };
 		3C8D4C8D2BF9999600F9156E /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C8D4C8C2BF9999600F9156E /* UIViewControllerExtension.swift */; };
+		3C8D4C912BF99BC600F9156E /* RequesterSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C8D4C902BF99BC600F9156E /* RequesterSpy.swift */; };
+		3C8D4C932BF99C9000F9156E /* BetListingRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C8D4C922BF99C9000F9156E /* BetListingRepositoryTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +79,8 @@
 		3C40E2542BF944D00026E162 /* BetListingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetListingCell.swift; sourceTree = "<group>"; };
 		3C8D4C892BF95D1800F9156E /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		3C8D4C8C2BF9999600F9156E /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
+		3C8D4C902BF99BC600F9156E /* RequesterSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequesterSpy.swift; sourceTree = "<group>"; };
+		3C8D4C922BF99C9000F9156E /* BetListingRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetListingRepositoryTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +143,7 @@
 		3C40E2192BF9346B0026E162 /* KaizenTests */ = {
 			isa = PBXGroup;
 			children = (
+				3C8D4C8E2BF99B3000F9156E /* BetListing */,
 				3C40E23D2BF9381E0026E162 /* Modules */,
 			);
 			path = KaizenTests;
@@ -231,6 +236,23 @@
 				3C8D4C892BF95D1800F9156E /* HeaderView.swift */,
 			);
 			path = UI;
+			sourceTree = "<group>";
+		};
+		3C8D4C8E2BF99B3000F9156E /* BetListing */ = {
+			isa = PBXGroup;
+			children = (
+				3C8D4C8F2BF99BB400F9156E /* Helpers */,
+				3C8D4C922BF99C9000F9156E /* BetListingRepositoryTests.swift */,
+			);
+			path = BetListing;
+			sourceTree = "<group>";
+		};
+		3C8D4C8F2BF99BB400F9156E /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				3C8D4C902BF99BC600F9156E /* RequesterSpy.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -388,6 +410,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				3C40E21B2BF9346B0026E162 /* RequesterTests.swift in Sources */,
+				3C8D4C912BF99BC600F9156E /* RequesterSpy.swift in Sources */,
+				3C8D4C932BF99C9000F9156E /* BetListingRepositoryTests.swift in Sources */,
 				3C40E2412BF938510026E162 /* URLProtocolStub.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

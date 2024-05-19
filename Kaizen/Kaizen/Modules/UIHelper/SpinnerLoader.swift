@@ -19,7 +19,7 @@ import UIKit
         return circleLayer
     }()
 
-    public var color: UIColor = UIColor.blue {
+    var color: UIColor = UIColor.blue {
         didSet {
             self.circleLayer.strokeColor = self.color.cgColor
         }
@@ -31,11 +31,11 @@ import UIKit
         self.layer.addSublayer(circleLayer)
     }
 
-    required public init?(coder: NSCoder) {
+    required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
-    public override func layoutSubviews() {
+    override func layoutSubviews() {
         super.layoutSubviews()
 
         if self.circleLayer.frame != self.bounds {

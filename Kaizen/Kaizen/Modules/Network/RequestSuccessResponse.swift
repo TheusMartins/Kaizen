@@ -7,11 +7,11 @@
 
 import Foundation
 
-public struct RequestSuccessResponse {
-    public let data: Data
-    public let response: URLResponse
+struct RequestSuccessResponse {
+    let data: Data
+    let response: URLResponse
     
-    public init(data: Data, response: URLResponse) {
+    init(data: Data, response: URLResponse) {
         self.data = data
         self.response = response
     }
