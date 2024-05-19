@@ -33,7 +33,7 @@ final class BetListingCell: UITableViewCell {
     }()
     
     private lazy var starImageView: UIImageView = {
-        let imageView = UIImageView(image: .init(systemName: "star")?.withRenderingMode(.alwaysTemplate).withTintColor(.green))
+        let imageView = UIImageView(image: .init(systemName: "star")?.withRenderingMode(.alwaysTemplate))
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFit
         return imageView
@@ -47,14 +47,8 @@ final class BetListingCell: UITableViewCell {
         return label
     }()
     
-    // Timer for the counter
-    var timer: Timer?
-    var endTime: TimeInterval?
-    
     override func prepareForReuse() {
         super.prepareForReuse()
-        timer?.invalidate()
-        timer = nil
         counterContainer.removeFromSuperview()
         starImageView.removeFromSuperview()
         eventNameLabel.removeFromSuperview()
@@ -62,34 +56,22 @@ final class BetListingCell: UITableViewCell {
     
     func setupWith(viewModel: BetListingCell.ViewModel) {
         eventNameLabel.text = viewModel.eventName
-        endTime = TimeInterval(viewModel.timeToStartStart)
-        starImageView.tintColor = viewModel.isFavorite ? .yellow : .gray
-        startTimer()
+        starImageView.tintColor = viewModel.isFavorite ? .yellow : .darkGray
         setupViewConfiguration()
     }
     
-    private func startTimer() {
-        timer?.invalidate() // Invalidate any existing timer
-        timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { [weak self] _ in
-            guard let self = self, let endTime = self.endTime else { return }
-            let currentTime = Date().timeIntervalSince1970
-            let remainingTime = max(endTime - currentTime, 0)
-            if remainingTime <= 0 {
-                self.timer?.invalidate()
-                self.timer = nil
-                self.counterLabel.text = "HH:MM:SS" // Reset or update the label as needed
-                return
-            }
-            
-            // Since DateFormatter is not directly suited for time intervals,
-            // we use DateComponentsFormatter for a more appropriate approach
-            let formatter = DateComponentsFormatter()
-            formatter.allowedUnits = [.hour, .minute, .second]
-            formatter.unitsStyle = .positional
-            formatter.zeroFormattingBehavior = .pad
-            
-            self.counterLabel.text = formatter.string(from: TimeInterval(remainingTime))
-        }
+    func updateWith(viewModel: ViewModel) {
+        guard let endTime = TimeInterval(exactly: viewModel.timeToStartStart) else { return }
+        counterLabel.text = calculateRemainingTime(endTime: endTime)
+    }
+    
+    func calculateRemainingTime(endTime: TimeInterval) -> String {
+        let currentTime = Date().timeIntervalSince1970
+        let remainingTime = max(endTime - currentTime, 0)
+        let hours = Int(remainingTime) / 3600
+        let minutes = Int(remainingTime) / 60 % 60
+        let seconds = Int(remainingTime) % 60
+        return String(format: "%02i:%02i:%02i", hours, minutes, seconds)
     }
 }
 
@@ -119,11 +101,12 @@ extension BetListingCell: ViewConfiguration {
             starImageView.widthAnchor.constraint(equalToConstant: 24),
             starImageView.heightAnchor.constraint(equalToConstant: 24),
             starImageView.centerYAnchor.constraint(equalTo: centerYAnchor),
-            starImageView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8)
+            starImageView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -24)
         ])
     }
     
     func configureViews() {
         selectionStyle = .none
+        backgroundColor = .gray
     }
 }

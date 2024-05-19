@@ -44,6 +44,8 @@ final class BetListingView: UIView {
     
     // MARK: - Private properties
     
+    private var timer: Timer?
+    
     private lazy var spinnerLoader: SpinnerLoader = {
         let loader = SpinnerLoader()
         loader.translatesAutoresizingMaskIntoConstraints = false
@@ -75,6 +77,7 @@ final class BetListingView: UIView {
     }
     
     // MARK: - Public methods
+    
     func setLoading(isLoading: Bool) {
         spinnerLoader.isHidden = !isLoading
         tableView.isHidden = isLoading
@@ -101,6 +104,15 @@ final class BetListingView: UIView {
         // Reload the table view to reflect changes
         tableView.reloadData()
     }
+    
+    @objc func updateCountdown() {
+        for cell in tableView.visibleCells as! [BetListingCell] {
+            if let indexPath = tableView.indexPath(for: cell) {
+                let viewModel = viewModel.bets[indexPath.section].events[indexPath.row] 
+                cell.updateWith(viewModel: viewModel)
+            }
+        }
+    }
 }
 
 // MARK: - ViewConfiguration
@@ -125,7 +137,8 @@ extension BetListingView: ViewConfiguration {
     }
     
     func configureViews() {
-        self.backgroundColor = .darkGray
+        backgroundColor = .darkGray
+        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateCountdown), userInfo: nil, repeats: true)
     }
 }
 

@@ -16,7 +16,8 @@ final class HeaderView: UIView {
     }()
     
     private lazy var chevronImageView: UIImageView = {
-        let imageView = UIImageView(image: .init(systemName: "chevron.down"))
+        let imageView = UIImageView(image: .init(systemName: "chevron.down")?.withRenderingMode(.alwaysTemplate))
+        imageView.tintColor = .gray
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFit
         return imageView
@@ -58,7 +59,7 @@ extension HeaderView: ViewConfiguration {
             titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
             
             chevronImageView.centerYAnchor.constraint(equalTo: centerYAnchor),
-            chevronImageView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
+            chevronImageView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -24),
             chevronImageView.widthAnchor.constraint(equalToConstant: 20),
             chevronImageView.heightAnchor.constraint(equalToConstant: 20),
         ])
