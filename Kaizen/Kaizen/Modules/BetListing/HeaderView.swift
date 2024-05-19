@@ -7,7 +7,11 @@
 
 import UIKit
 
+/// A custom header view that includes a title label and a chevron image to indicate collapsible sections.
 final class HeaderView: UIView {
+    
+    // MARK: - Private Properties
+    
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.textColor = .white
@@ -16,15 +20,19 @@ final class HeaderView: UIView {
     }()
     
     private lazy var chevronImageView: UIImageView = {
-        let imageView = UIImageView(image: .init(systemName: "chevron.down")?.withRenderingMode(.alwaysTemplate))
+        let imageView = UIImageView(image: .init(systemName: .chevronDown)?.withRenderingMode(.alwaysTemplate))
         imageView.tintColor = .gray
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFit
         return imageView
     }()
     
-    // Add a closure to handle tap action
+    // MARK: - Public Properties
+    
+    /// Closure invoked when the header is tapped.
     var didTapHeader: (() -> Void)?
+    
+    // MARK: - Initialization
     
     init(headerTitle: String) {
         super.init(frame: .zero)
@@ -38,14 +46,23 @@ final class HeaderView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - Configuration
+    
+    /// Updates the chevron image based on the collapsed state.
+    /// - Parameter collapsed: A Boolean value indicating whether the section is collapsed.
     func setCollapsed(_ collapsed: Bool) {
-        chevronImageView.image = collapsed ? UIImage(systemName: "chevron.right") : UIImage(systemName: "chevron.down")
+        let systemName: String = collapsed ? .chevronRight : .chevronDown
+        chevronImageView.image = UIImage(systemName: systemName)
     }
+    
+    // MARK: - Actions
     
     @objc private func handleTap() {
         didTapHeader?()
     }
 }
+
+// MARK: - ViewConfiguration
 
 extension HeaderView: ViewConfiguration {
     func buildViewHierarchy() {
@@ -56,16 +73,29 @@ extension HeaderView: ViewConfiguration {
     func setupConstraints() {
         NSLayoutConstraint.activate([
             titleLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
-            titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+            titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: .leadingPadding),
             
             chevronImageView.centerYAnchor.constraint(equalTo: centerYAnchor),
-            chevronImageView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -24),
-            chevronImageView.widthAnchor.constraint(equalToConstant: 20),
-            chevronImageView.heightAnchor.constraint(equalToConstant: 20),
+            chevronImageView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -.trailingPadding),
+            chevronImageView.widthAnchor.constraint(equalToConstant: .iconSize),
+            chevronImageView.heightAnchor.constraint(equalToConstant: .iconSize),
         ])
     }
     
     func configureViews() {
         backgroundColor = .darkGray
     }
+}
+
+// MARK: - Constants and Extensions
+
+private extension CGFloat {
+    static let leadingPadding: CGFloat = 20
+    static let trailingPadding: CGFloat = 24
+    static let iconSize: CGFloat = 20
+}
+
+private extension String {
+    static let chevronDown = "chevron.down"
+    static let chevronRight = "chevron.right"
 }
