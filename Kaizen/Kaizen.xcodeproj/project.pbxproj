@@ -29,6 +29,7 @@
 		3C40E2532BF941410026E162 /* ViewConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C40E2522BF941410026E162 /* ViewConfiguration.swift */; };
 		3C40E2552BF944D00026E162 /* BetListingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C40E2542BF944D00026E162 /* BetListingCell.swift */; };
 		3C8D4C8A2BF95D1800F9156E /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C8D4C892BF95D1800F9156E /* HeaderView.swift */; };
+		3C8D4C8D2BF9999600F9156E /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C8D4C8C2BF9999600F9156E /* UIViewControllerExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +76,7 @@
 		3C40E2522BF941410026E162 /* ViewConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewConfiguration.swift; sourceTree = "<group>"; };
 		3C40E2542BF944D00026E162 /* BetListingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetListingCell.swift; sourceTree = "<group>"; };
 		3C8D4C892BF95D1800F9156E /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		3C8D4C8C2BF9999600F9156E /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -200,14 +202,12 @@
 		3C40E2422BF939340026E162 /* BetListing */ = {
 			isa = PBXGroup;
 			children = (
+				3C8D4C8B2BF998FB00F9156E /* UI */,
 				3C40E2072BF9346A0026E162 /* BetListingController.swift */,
 				3C40E2432BF939B20026E162 /* BetListingRequest.swift */,
 				3C40E2452BF93A2A0026E162 /* BetListingRepository.swift */,
 				3C40E2472BF93A790026E162 /* BetListingModel.swift */,
 				3C40E2492BF93D1C0026E162 /* BetListingViewModel.swift */,
-				3C40E24B2BF93DFA0026E162 /* BetListingView.swift */,
-				3C40E2542BF944D00026E162 /* BetListingCell.swift */,
-				3C8D4C892BF95D1800F9156E /* HeaderView.swift */,
 			);
 			path = BetListing;
 			sourceTree = "<group>";
@@ -218,8 +218,19 @@
 				3C40E24E2BF93FC80026E162 /* SpinnerLoader.swift */,
 				3C40E2502BF940FB0026E162 /* Reusable.swift */,
 				3C40E2522BF941410026E162 /* ViewConfiguration.swift */,
+				3C8D4C8C2BF9999600F9156E /* UIViewControllerExtension.swift */,
 			);
 			path = UIHelper;
+			sourceTree = "<group>";
+		};
+		3C8D4C8B2BF998FB00F9156E /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				3C40E24B2BF93DFA0026E162 /* BetListingView.swift */,
+				3C40E2542BF944D00026E162 /* BetListingCell.swift */,
+				3C8D4C892BF95D1800F9156E /* HeaderView.swift */,
+			);
+			path = UI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -356,6 +367,7 @@
 				3C40E24C2BF93DFA0026E162 /* BetListingView.swift in Sources */,
 				3C40E2362BF936D50026E162 /* RequestInfos.swift in Sources */,
 				3C40E2442BF939B20026E162 /* BetListingRequest.swift in Sources */,
+				3C8D4C8D2BF9999600F9156E /* UIViewControllerExtension.swift in Sources */,
 				3C40E2552BF944D00026E162 /* BetListingCell.swift in Sources */,
 				3C40E24F2BF93FC80026E162 /* SpinnerLoader.swift in Sources */,
 				3C40E2532BF941410026E162 /* ViewConfiguration.swift in Sources */,

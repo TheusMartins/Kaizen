@@ -44,6 +44,7 @@ final class BetListingController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupTitle("Kaizen")
         setupViewModel()
     }
     
