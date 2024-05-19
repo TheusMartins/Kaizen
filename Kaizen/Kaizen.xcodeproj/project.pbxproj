@@ -12,8 +12,6 @@
 		3C40E20D2BF9346B0026E162 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3C40E20C2BF9346B0026E162 /* Assets.xcassets */; };
 		3C40E2102BF9346B0026E162 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C40E20E2BF9346B0026E162 /* LaunchScreen.storyboard */; };
 		3C40E21B2BF9346B0026E162 /* RequesterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C40E21A2BF9346B0026E162 /* RequesterTests.swift */; };
-		3C40E2252BF9346B0026E162 /* KaizenUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C40E2242BF9346B0026E162 /* KaizenUITests.swift */; };
-		3C40E2272BF9346B0026E162 /* KaizenUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C40E2262BF9346B0026E162 /* KaizenUITestsLaunchTests.swift */; };
 		3C40E2362BF936D50026E162 /* RequestInfos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C40E2352BF936D50026E162 /* RequestInfos.swift */; };
 		3C40E2382BF9373A0026E162 /* BaseRequestErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C40E2372BF9373A0026E162 /* BaseRequestErrors.swift */; };
 		3C40E23A2BF937850026E162 /* RequestSuccessResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C40E2392BF937850026E162 /* RequestSuccessResponse.swift */; };
@@ -45,13 +43,6 @@
 			remoteGlobalIDString = 3C40E1FF2BF9346A0026E162;
 			remoteInfo = Kaizen;
 		};
-		3C40E2212BF9346B0026E162 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 3C40E1F82BF9346A0026E162 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 3C40E1FF2BF9346A0026E162;
-			remoteInfo = Kaizen;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -63,9 +54,6 @@
 		3C40E2112BF9346B0026E162 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3C40E2162BF9346B0026E162 /* KaizenTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KaizenTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C40E21A2BF9346B0026E162 /* RequesterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequesterTests.swift; sourceTree = "<group>"; };
-		3C40E2202BF9346B0026E162 /* KaizenUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KaizenUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		3C40E2242BF9346B0026E162 /* KaizenUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KaizenUITests.swift; sourceTree = "<group>"; };
-		3C40E2262BF9346B0026E162 /* KaizenUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KaizenUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		3C40E2352BF936D50026E162 /* RequestInfos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestInfos.swift; sourceTree = "<group>"; };
 		3C40E2372BF9373A0026E162 /* BaseRequestErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseRequestErrors.swift; sourceTree = "<group>"; };
 		3C40E2392BF937850026E162 /* RequestSuccessResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestSuccessResponse.swift; sourceTree = "<group>"; };
@@ -104,13 +92,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		3C40E21D2BF9346B0026E162 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -119,7 +100,6 @@
 			children = (
 				3C40E2022BF9346A0026E162 /* Kaizen */,
 				3C40E2192BF9346B0026E162 /* KaizenTests */,
-				3C40E2232BF9346B0026E162 /* KaizenUITests */,
 				3C40E2012BF9346A0026E162 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -129,7 +109,6 @@
 			children = (
 				3C40E2002BF9346A0026E162 /* Kaizen.app */,
 				3C40E2162BF9346B0026E162 /* KaizenTests.xctest */,
-				3C40E2202BF9346B0026E162 /* KaizenUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -153,15 +132,6 @@
 				3C40E23D2BF9381E0026E162 /* Modules */,
 			);
 			path = KaizenTests;
-			sourceTree = "<group>";
-		};
-		3C40E2232BF9346B0026E162 /* KaizenUITests */ = {
-			isa = PBXGroup;
-			children = (
-				3C40E2242BF9346B0026E162 /* KaizenUITests.swift */,
-				3C40E2262BF9346B0026E162 /* KaizenUITestsLaunchTests.swift */,
-			);
-			path = KaizenUITests;
 			sourceTree = "<group>";
 		};
 		3C40E2332BF936A80026E162 /* Modules */ = {
@@ -302,24 +272,6 @@
 			productReference = 3C40E2162BF9346B0026E162 /* KaizenTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		3C40E21F2BF9346B0026E162 /* KaizenUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 3C40E2302BF9346B0026E162 /* Build configuration list for PBXNativeTarget "KaizenUITests" */;
-			buildPhases = (
-				3C40E21C2BF9346B0026E162 /* Sources */,
-				3C40E21D2BF9346B0026E162 /* Frameworks */,
-				3C40E21E2BF9346B0026E162 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				3C40E2222BF9346B0026E162 /* PBXTargetDependency */,
-			);
-			name = KaizenUITests;
-			productName = KaizenUITests;
-			productReference = 3C40E2202BF9346B0026E162 /* KaizenUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -334,10 +286,6 @@
 						CreatedOnToolsVersion = 15.0;
 					};
 					3C40E2152BF9346B0026E162 = {
-						CreatedOnToolsVersion = 15.0;
-						TestTargetID = 3C40E1FF2BF9346A0026E162;
-					};
-					3C40E21F2BF9346B0026E162 = {
 						CreatedOnToolsVersion = 15.0;
 						TestTargetID = 3C40E1FF2BF9346A0026E162;
 					};
@@ -358,7 +306,6 @@
 			targets = (
 				3C40E1FF2BF9346A0026E162 /* Kaizen */,
 				3C40E2152BF9346B0026E162 /* KaizenTests */,
-				3C40E21F2BF9346B0026E162 /* KaizenUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -374,13 +321,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		3C40E2142BF9346B0026E162 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		3C40E21E2BF9346B0026E162 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -428,15 +368,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		3C40E21C2BF9346B0026E162 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				3C40E2272BF9346B0026E162 /* KaizenUITestsLaunchTests.swift in Sources */,
-				3C40E2252BF9346B0026E162 /* KaizenUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -444,11 +375,6 @@
 			isa = PBXTargetDependency;
 			target = 3C40E1FF2BF9346A0026E162 /* Kaizen */;
 			targetProxy = 3C40E2172BF9346B0026E162 /* PBXContainerItemProxy */;
-		};
-		3C40E2222BF9346B0026E162 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 3C40E1FF2BF9346A0026E162 /* Kaizen */;
-			targetProxy = 3C40E2212BF9346B0026E162 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -677,42 +603,6 @@
 			};
 			name = Release;
 		};
-		3C40E2312BF9346B0026E162 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = ZKHK2T4C5A;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.matheusmartins.KaizenUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = Kaizen;
-			};
-			name = Debug;
-		};
-		3C40E2322BF9346B0026E162 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = ZKHK2T4C5A;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.matheusmartins.KaizenUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = Kaizen;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -739,15 +629,6 @@
 			buildConfigurations = (
 				3C40E22E2BF9346B0026E162 /* Debug */,
 				3C40E22F2BF9346B0026E162 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		3C40E2302BF9346B0026E162 /* Build configuration list for PBXNativeTarget "KaizenUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				3C40E2312BF9346B0026E162 /* Debug */,
-				3C40E2322BF9346B0026E162 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
